@@ -15,7 +15,7 @@ use std::path::{Path, PathBuf};
 ///	of the first argument.
 pub fn make_native_path(path: &Path) -> PathBuf {
     if cfg!(windows) {
-        // Windows strings are UTF.
+        // Windows strings are UTF...right?
         let path = path.to_str().unwrap_or("");
         Path::new(&path.replace("/", "\\")).to_owned()
     } else {
