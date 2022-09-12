@@ -35,7 +35,8 @@ EXTRA_CLEAN = xlogreader.c
 all: pg_rewind
 
 pg_rewind: $(OBJS) | submake-libpq submake-libpgport
-	$(CC) $(CFLAGS) $^ $(LDFLAGS) $(LDFLAGS_EX) $(LIBS) -o $@$(X)
+	cargo build --release --features pg_rewind
+	$(CC) $(CFLAGS) $^ $(LDFLAGS) $(LDFLAGS_EX) $(LIBS) -o $@$(X) ../../../target/release/libpostgres_rust.a
 
 xlogreader.c: % : $(top_srcdir)/src/backend/access/transam/%
 	rm -f $@ && $(LN_S) $< .

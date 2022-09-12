@@ -1,0 +1,15 @@
+[package]
+name = "postgres_rust"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+name = "postgres_rust"
+crate-type = ["staticlib"]
+
+[dependencies]
+libc = "*"
+
+[features]
+default = []
+pg_rewind = []
