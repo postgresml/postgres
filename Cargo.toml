@@ -5,7 +5,7 @@ edition = "2021"
 
 [lib]
 name = "postgres_rust"
-crate-type = ["staticlib"]      # Creates dynamic lib
+crate-type = ["staticlib"]
 
 [dependencies]
 libc = "*"
