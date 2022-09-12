@@ -14,9 +14,8 @@ use std::path::{Path, PathBuf};
 ///	only if the current directory is the same as the directory
 ///	of the first argument.
 pub fn make_native_path(path: &Path) -> PathBuf {
-    // UTF-8 or bust, the year is 2022.
-
     if cfg!(windows) {
+        // Windows strings are UTF.
         let path = path.to_str().unwrap_or("");
         Path::new(&path.replace("/", "\\")).to_owned()
     } else {
